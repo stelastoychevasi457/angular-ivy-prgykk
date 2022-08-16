@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SORTED TABLE Project</title>
+  </head>
+  <body>
+    <h1>List of people from Fast typing contest</h1>
+    <p>Click the button to sort the table alphabetically, by name:</p>
+    <p><button onclick="sortTable()">Sort</button></p>
+
+    <div style="overflow-x:auto;">
+      <table id="myTable">
+        <tr>
+          <th>Name</th>
+          <th>WpM</th>
+        </tr>
+        <tr>
+          <td>Aleks</td>
+          <td>109</td>
+        </tr>
+        <tr>
+          <td>Stela</td>
+          <td>111</td>
+        </tr>
+        <tr>
+          <td>Sonya</td>
+          <td>96</td>
+        </tr>
+        <tr>
+          <td>Stiliyan</td>
+          <td>45</td>
+        </tr>
+        <tr>
+          <td>Maxim</td>
+          <td>65</td>
+        </tr>
+        <tr>
+          <td>Georgi</td>
+          <td>120</td>
+        </tr>
+        <tr>
+          <td>Nikolay</td>
+          <td>89</td>
+        </tr>
+        <tr>
+          <td>Kristin</td>
+          <td>101</td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+            sortTable();
+            let sortTable = () => {
+              var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById('myTable');
+        switching = true;
+        while (switching) {
+          switching = false;
+          rows = table.rows;
+          for (i = 1; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName('TD')[0];
+            y = rows[i + 1].getElementsByTagName('TD')[0];
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+          if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
